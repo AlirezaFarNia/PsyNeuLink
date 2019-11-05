@@ -807,7 +807,7 @@ def _generate_composition_string(composition_list, component_identifiers):
                 composition_dict[comp_type._model_spec_id_parameters][MODEL_SPEC_ID_PSYNEULINK]['required_node_roles']
             }
         except KeyError:
-            node_roles = []
+            node_roles = {}
 
         # do not add the controller as a normal node
         try:
