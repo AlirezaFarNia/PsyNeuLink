@@ -2424,7 +2424,6 @@ class Composition(Composition_Base, metaclass=ComponentsMeta):
 
                     interface_output_port = OutputPort(owner=self.input_CIM,
                                                         variable=OWNER_VALUE,
-                                                        default_variable=self.input_CIM.defaults.variable,
                                                         function=InterfacePortMap(
                                                              corresponding_input_port=interface_input_port),
                                                         name="INPUT_CIM_" + node.name + "_" + input_port.name)
@@ -2557,7 +2556,7 @@ class Composition(Composition_Base, metaclass=ComponentsMeta):
                                 owner = pcim,
                                 modulation = modulation,
                                 variable = OWNER_VALUE,
-                                function = InterfacePortMap(
+                                transfer_function=InterfacePortMap(
                                     corresponding_input_port = input_port
                                 ),
                                 modulates = receiver,

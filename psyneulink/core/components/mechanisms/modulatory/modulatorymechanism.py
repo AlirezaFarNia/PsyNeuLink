@@ -154,7 +154,7 @@ class ModulatoryMechanism_Base(Mechanism_Base):
     Attributes
     ----------
 
-    modulation : ModulationParam
+    modulation : str
         determines how the output of the ModulatoryMechanism's `ModulatorySignal(s) <ModulatorySignal>` are used to
         modulate the value of the Port(s) to which their `ModulatoryProjection(s) <ModulatoryProjection>` project.
    """
@@ -196,19 +196,14 @@ class ModulatoryMechanism_Base(Mechanism_Base):
         """Abstract class for ModulatoryMechanism
         """
 
-        if not hasattr(self, 'system'):
-            self.system = None
-
-        # Assign args to params and functionParams dicts
-        params = self._assign_args_to_param_dicts(params=params,
-                                                  modulation=modulation)
-
-        super().__init__(default_variable=default_variable,
-                         size=size,
-                         params=params,
-                         name=name,
-                         prefs=prefs,
-                         context=context,
-                         function=function,
-                         **kwargs
-                         )
+        super().__init__(
+            default_variable=default_variable,
+            size=size,
+            modulation=modulation,
+            params=params,
+            name=name,
+            prefs=prefs,
+            context=context,
+            function=function,
+            **kwargs
+        )
