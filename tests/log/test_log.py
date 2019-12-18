@@ -1075,7 +1075,7 @@ class TestClearLog:
 
 class TestFiltering:
 
-    @pytest.fixture(scope='module')
+    @pytest.fixture()
     def node_logged_in_simulation(self):
         Input = pnl.TransferMechanism(name='Input')
         reward = pnl.TransferMechanism(
